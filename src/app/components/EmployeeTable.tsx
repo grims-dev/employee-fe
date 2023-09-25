@@ -5,6 +5,7 @@ import {
     Table,
     TableBody,
     TableRow,
+    TableHead,
     TableCell,
     TableContainer,
     TableFooter,
@@ -33,25 +34,34 @@ export default function EmployeeTable() {
         <div className="w-full">
             <TableContainer>
                 <Table>
+                    <TableHead>
+                        <TableRow className="bg-theme-300 text-theme-600">
+                            <TableCell className="text-inherit">Employee Name</TableCell>
+                            <TableCell className="text-inherit">Email Address (Personal)</TableCell>
+                            <TableCell className="text-inherit">Mobile Number</TableCell>
+                            <TableCell className="text-inherit">Department</TableCell>
+                            <TableCell className="text-inherit">Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
                     <TableBody>
                         {(rowsPerPage > 0
                             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             : rows
                         ).map(row => (
                             <TableRow key={row.id}>
-                                <TableCell component="th" scope="row" className="w-1/5">
+                                <TableCell component="th" scope="row">
                                     {row.fullName}
                                 </TableCell>
-                                <TableCell className="w-1/5">
+                                <TableCell>
                                     {row.email}
                                 </TableCell>
-                                <TableCell className="w-1/5">
+                                <TableCell>
                                     {row.mobile}
                                 </TableCell>
-                                <TableCell className="w-1/5">
+                                <TableCell>
                                     {row.department}
                                 </TableCell>
-                                <TableCell className="w-1/5">
+                                <TableCell>
                                     {/** Actions button cell here */}
                                 </TableCell>
                             </TableRow>

@@ -52,18 +52,10 @@ export default function EmployeeTable() {
                                 <TableCell component="th" scope="row">
                                     {row.fullName}
                                 </TableCell>
-                                <TableCell>
-                                    {row.email}
-                                </TableCell>
-                                <TableCell>
-                                    {row.mobile}
-                                </TableCell>
-                                <TableCell>
-                                    {row.department}
-                                </TableCell>
-                                <TableCell>
-                                    {/** Actions button cell here */}
-                                </TableCell>
+                                <TableCell>{row.email}</TableCell>
+                                <TableCell>{row.mobile}</TableCell>
+                                <TableCell>{row.department}</TableCell>
+                                <TableCell>{/** Actions button cell here */}</TableCell>
                             </TableRow>
                         ))}
                         {emptyRows > 0 && (

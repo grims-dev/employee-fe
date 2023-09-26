@@ -8,7 +8,7 @@ See [employee-be](https://github.com/grims-dev/employee-be) for the back end.
 
 - Implement API properly - retrieve all data, not just using test data - details:
     - Endpoints stored in constants file for easy reference.
-    - Client-side fetch rather than server-sied, as this data could change at any point, and is not required at build time for SEO reasons, etc.
+    - Client-side fetch rather than server-side, as this data could change at any point, and is not required at build time for SEO reasons, etc.
     - Custom hooks using `useSWR` (example in [my Spotify API project](https://github.com/grims-dev/spotify-stats/blob/main/hooks/useGetPlaylist.ts)).
     - This would handle the error state, loading state, and successful data return.
     - Call hooks within React components.

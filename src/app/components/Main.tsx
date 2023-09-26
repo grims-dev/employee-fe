@@ -3,7 +3,7 @@ import TopNav from './TopNav';
 
 export default function Main() {
     return (
-        <main className="grow text-gray-900">
+        <main className="grow bg-theme-100 text-gray-900">
             <TopNav />
             <EmployeeTable />
         </main>

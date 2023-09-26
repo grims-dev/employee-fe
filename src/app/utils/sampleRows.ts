@@ -1,5 +1,8 @@
 import { Employee } from './types';
 
+// TODO: scrap this file and replace with API call
+// I know the mobile number is in the wrong format (not locked to UK),
+// but it's already generated now, so I'll leave it as is.
 export const rows: Employee[] = [
     {
         city: 'East Schuylerboro',

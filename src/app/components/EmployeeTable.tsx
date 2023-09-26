@@ -12,6 +12,7 @@ import {
     TablePagination,
 } from '@mui/material';
 
+import ContentContainer from './ContentContainer';
 import CustomTablePaginationActions from './CustomTablePaginationActions';
 import { rows } from '../utils/sampleRows';
 
@@ -31,8 +32,8 @@ export default function EmployeeTable() {
         setPage(0);
     };
     return (
-        <div className="w-full">
-            <TableContainer>
+        <ContentContainer>
+            <TableContainer className="p-6 bg-gray-50">
                 <Table>
                     <TableHead>
                         <TableRow className="bg-theme-300 text-theme-600">
@@ -85,6 +86,6 @@ export default function EmployeeTable() {
                     </TableFooter>
                 </Table>
             </TableContainer>
-        </div>
+        </ContentContainer>
     );
 }

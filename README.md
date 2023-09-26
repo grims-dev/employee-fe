@@ -11,7 +11,9 @@ See [employee-be](https://github.com/grims-dev/employee-be) for the back end.
     - Client-side fetch rather than server-sied, as this data could change at any point, and is not required at build time for SEO reasons, etc.
     - Custom hooks using `useSWR` (example in [my Spotify API project](https://github.com/grims-dev/spotify-stats/blob/main/hooks/useGetPlaylist.ts)).
     - This would handle the error state, loading state, and successful data return.
-- Add modal interface for adding/updating employees
+    - Call hooks within React components.
+    - If the data needs to be used in multiple components across the app, use React Context to easily pass the data down the component tree.
+- Add modal interface for adding/updating/deleting employees
 - Add buttons into table for updating/deleting employees
 - Add rest of missing design elements
 - Add component unit tests

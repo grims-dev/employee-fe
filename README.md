@@ -6,7 +6,7 @@ See [employee-be](https://github.com/grims-dev/employee-be) for the back end.
 
 ## TODOs
 
-- Implement API properly - retrieve all data, not just using test data - details:
+- Implement API properly - retrieve all data, and scrap test data - details:
     - Endpoints stored in constants file for easy reference.
     - Client-side fetch rather than server-side, as this data could change at any point, and is not required at build time for SEO reasons, etc.
     - Custom hooks using `useSWR` (example in [my Spotify API project](https://github.com/grims-dev/spotify-stats/blob/main/hooks/useGetPlaylist.ts)).
@@ -17,6 +17,8 @@ See [employee-be](https://github.com/grims-dev/employee-be) for the back end.
 - Add buttons into table for updating/deleting employees
 - Add rest of missing design elements
 - Add component unit tests
+
+![Current Design](./docs/screenshot.png)
 
 ## Getting Started
 

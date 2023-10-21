@@ -1,0 +1,1 @@
+export const NEXT_PUBLIC_EMPLOYEES_API_URL = process.env?.NEXT_PUBLIC_EMPLOYEES_API_URL ?? '';

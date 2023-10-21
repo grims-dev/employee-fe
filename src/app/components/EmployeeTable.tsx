@@ -14,14 +14,29 @@ import {
 
 import ContentContainer from './ContentContainer';
 import CustomTablePaginationActions from './CustomTablePaginationActions';
-import { rows } from '../utils/sampleRows';
+import { useGetRequest } from '../hooks/useGetRequest';
+import { Employee } from '../utils/types';
+import { NEXT_PUBLIC_EMPLOYEES_API_URL } from '../utils/env';
 
 export default function EmployeeTable() {
     const [page, setPage] = useState<number>(0);
     const [rowsPerPage, setRowsPerPage] = useState<number>(5);
+    const { data, isError, isLoading } = useGetRequest<Employee[]>(NEXT_PUBLIC_EMPLOYEES_API_URL);
+
+    if (isLoading) return (
+        <ContentContainer>
+            <p>Loading employees...</p>
+        </ContentContainer>
+    );
+
+    if (isError || data === undefined) return (
+        <ContentContainer>
+            <p>Failed to load employees. Please refresh and try again.</p>
+        </ContentContainer>
+    );
 
     // Avoid a layout jump when reaching the last page with empty rows.
-    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
 
     const handleChangePage = (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number): void => {
         setPage(newPage);
@@ -47,8 +62,8 @@ export default function EmployeeTable() {
                     </TableHead>
                     <TableBody>
                         {(rowsPerPage > 0
-                            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            : rows
+                            ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            : data
                         ).map(row => (
                             <TableRow key={row.id}>
                                 <TableCell component="th" scope="row">
@@ -70,7 +85,7 @@ export default function EmployeeTable() {
                         <TableRow>
                             <TablePagination
                                 rowsPerPageOptions={[5, 10, 25]}
-                                count={rows.length}
+                                count={data.length}
                                 rowsPerPage={rowsPerPage}
                                 page={page}
                                 SelectProps={{
